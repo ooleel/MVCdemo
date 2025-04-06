@@ -44,3 +44,11 @@ app.MapRazorPages()
    .WithStaticAssets();
 
 app.Run();
+
+//Add sample data 
+using (var scope = app.Services.CreateScope())
+{
+    var services = scope.ServiceProvider;
+    var context = services.GetRequiredService<ApplicationDbContext>();
+    DbSeeder.Initialize(context);
+}

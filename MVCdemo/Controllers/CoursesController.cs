@@ -36,7 +36,7 @@ namespace MVCdemo.Controllers
 
             var course = await _context.Courses
                 .Include(c => c.Teacher)
-                .FirstOrDefaultAsync(m => m.CourseId == id);
+                .FirstOrDefaultAsync(m => m.Id == id);
             if (course == null)
             {
                 return NotFound();
@@ -93,7 +93,7 @@ namespace MVCdemo.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, [Bind("CourseId,Title,Credits,TeacherId")] Course course)
         {
-            if (id != course.CourseId)
+            if (id != course.Id)
             {
                 return NotFound();
             }
@@ -107,7 +107,7 @@ namespace MVCdemo.Controllers
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!CourseExists(course.CourseId))
+                    if (!CourseExists(course.Id))
                     {
                         return NotFound();
                     }
@@ -132,7 +132,7 @@ namespace MVCdemo.Controllers
 
             var course = await _context.Courses
                 .Include(c => c.Teacher)
-                .FirstOrDefaultAsync(m => m.CourseId == id);
+                .FirstOrDefaultAsync(m => m.Id == id);
             if (course == null)
             {
                 return NotFound();
@@ -158,7 +158,7 @@ namespace MVCdemo.Controllers
 
         private bool CourseExists(int id)
         {
-            return _context.Courses.Any(e => e.CourseId == id);
+            return _context.Courses.Any(e => e.Id == id);
         }
     }
 }

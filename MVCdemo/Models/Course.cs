@@ -2,9 +2,9 @@
 {
     public class Course
     {
-        public int CourseId { get; set; }
+        public int Id { get; set; }
         public string Title { get; set; }
-        public int Credits { get; set; }
+        public string Description { get; set; }
 
         //FK
         public int TeacherId { get; set; }

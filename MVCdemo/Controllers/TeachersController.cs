@@ -34,7 +34,7 @@ namespace MVCdemo.Controllers
             }
 
             var teacher = await _context.Teachers
-                .FirstOrDefaultAsync(m => m.TeacherId == id);
+                .FirstOrDefaultAsync(m => m.Id == id);
             if (teacher == null)
             {
                 return NotFound();
@@ -88,7 +88,7 @@ namespace MVCdemo.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, [Bind("TeacherId,Name,Department")] Teacher teacher)
         {
-            if (id != teacher.TeacherId)
+            if (id != teacher.Id)
             {
                 return NotFound();
             }
@@ -102,7 +102,7 @@ namespace MVCdemo.Controllers
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!TeacherExists(teacher.TeacherId))
+                    if (!TeacherExists(teacher.Id))
                     {
                         return NotFound();
                     }
@@ -125,7 +125,7 @@ namespace MVCdemo.Controllers
             }
 
             var teacher = await _context.Teachers
-                .FirstOrDefaultAsync(m => m.TeacherId == id);
+                .FirstOrDefaultAsync(m => m.Id == id);
             if (teacher == null)
             {
                 return NotFound();
@@ -151,7 +151,7 @@ namespace MVCdemo.Controllers
 
         private bool TeacherExists(int id)
         {
-            return _context.Teachers.Any(e => e.TeacherId == id);
+            return _context.Teachers.Any(e => e.Id == id);
         }
     }
 }
