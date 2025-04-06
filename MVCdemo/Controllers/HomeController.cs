@@ -6,7 +6,7 @@ namespace MVCdemo.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
+        /*private readonly ILogger<HomeController> _logger;
 
         public HomeController(ILogger<HomeController> logger)
         {
@@ -27,6 +27,18 @@ namespace MVCdemo.Controllers
         public IActionResult Error()
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+        }*/
+
+        public ActionResult Index()
+        {
+            ViewBag.Title = "Home Page";
+            return View();
+        }
+
+        public ActionResult About()
+        {
+            ViewBag.Title = "About Page";
+            return View();
         }
     }
 }
