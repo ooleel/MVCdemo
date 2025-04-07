@@ -2,12 +2,16 @@
 
 namespace MVCdemo.Data
 {
-    public static class DbSeeder
+    public static class DbInitialiser
     {
         public static void Initialize(ApplicationDbContext context)
         {
-            //FIX?????
-            //if (context.Students.Any)) return; // DB has been seeded
+            context.Database.EnsureCreated();
+
+            if (context.Students.Any()) 
+            {
+                return; // DB has been seeded
+            }
 
             //Add sample teachers
             var teachers = new Teacher[]

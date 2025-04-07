@@ -7,15 +7,25 @@ namespace MVCdemo.Controllers
 {
     public class HomeController : Controller
     {
-        /*private readonly ILogger<HomeController> _logger;
+        private readonly ILogger<HomeController> _logger;
+        private readonly ApplicationDbContext _context;
 
-        public HomeController(ILogger<HomeController> logger)
+        //combined constructors
+        public HomeController(ILogger<HomeController> logger, ApplicationDbContext context)
         {
             _logger = logger;
+            _context = context;
         }
 
-        public IActionResult Index()
+        public ActionResult Index()
         {
+            var students = _context.Students.ToList();
+            return View(students);
+        }
+
+        public ActionResult About()
+        {
+            ViewBag.Title = "About Page";
             return View();
         }
 
@@ -28,26 +38,6 @@ namespace MVCdemo.Controllers
         public IActionResult Error()
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
-        }*/
-
-        private readonly ApplicationDbContext _context;
-
-        public HomeController(ApplicationDbContext context)
-        {
-            _context = context;
-        }
-
-        public ActionResult Index()
-        {
-            //ViewBag.Title = "Home Page";
-            var students = _context.Students.ToList();
-            return View(students);
-        }
-
-        public ActionResult About()
-        {
-            ViewBag.Title = "About Page";
-            return View();
         }
     }
 }

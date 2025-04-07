@@ -11,7 +11,7 @@
         public Teacher Teacher { get; set; }
 
         //many-to-many for students 
-        public ICollection<Student> Students { get; set; } = new List<Student>();
+        public ICollection<Student> Students { get; set; }
     }
 }
 

@@ -50,5 +50,10 @@ using (var scope = app.Services.CreateScope())
 {
     var services = scope.ServiceProvider;
     var context = services.GetRequiredService<ApplicationDbContext>();
-    DbSeeder.Initialize(context);
+    DbInitialiser.Initialize(context);
 }
+
+//Add area route mapping before default route
+app.MapControllerRoute(
+    name: "areas",
+    pattern: "{area:exists}/{controller=Home}/{action=Index}/{id?}");
