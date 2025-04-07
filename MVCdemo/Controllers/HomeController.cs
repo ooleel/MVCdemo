@@ -17,7 +17,7 @@ namespace MVCdemo.Controllers
             _context = context;
         }
 
-        public Task<ActionResult Index()
+        public ActionResult Index()
         {
             var students = _context.Students.ToList();
             return View(students);
@@ -36,7 +36,12 @@ namespace MVCdemo.Controllers
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {
-            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+            return View(
+                new ErrorViewModel
+                {
+                    RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier,
+                }
+            );
         }
     }
 }
