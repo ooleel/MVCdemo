@@ -1,4 +1,5 @@
-﻿using MVCdemo.Data;
+﻿using MVCdemo.Areas.Students.Models;
+using MVCdemo.Data;
 
 namespace MVCdemo.Models
 {

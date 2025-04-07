@@ -2,6 +2,8 @@
 using Microsoft.EntityFrameworkCore;
 using MVCdemo.Models;
 using Microsoft.Identity.Client;
+using MVCdemo.Areas.Admin.Models;
+using MVCdemo.Areas.Students.Models;
 
 namespace MVCdemo.Data
 {

@@ -1,4 +1,6 @@
-﻿namespace MVCdemo.Models
+﻿using MVCdemo.Areas.Students.Models;
+
+namespace MVCdemo.Areas.Admin.Models
 {
     public class Teacher
     {

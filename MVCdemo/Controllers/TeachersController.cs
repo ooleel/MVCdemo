@@ -5,8 +5,8 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
+using MVCdemo.Areas.Admin.Models;
 using MVCdemo.Data;
-using MVCdemo.Models;
 
 namespace MVCdemo.Controllers
 {
