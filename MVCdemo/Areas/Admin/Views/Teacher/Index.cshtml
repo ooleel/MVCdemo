@@ -1,7 +1,11 @@
 ﻿@model IEnumerable<MVCdemo.Models.Teacher>
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Teachers";
+}
+
+@foreach (var teacher in Model){
+    <div>@teacher.FullName</div>
 }
 
 <h1>Index</h1>
@@ -21,6 +25,7 @@
             <th></th>
         </tr>
     </thead>
+
     <tbody>
 @foreach (var item in Model) {
         <tr>

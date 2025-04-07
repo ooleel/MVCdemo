@@ -17,7 +17,7 @@ namespace MVCdemo.Controllers
             _context = context;
         }
 
-        public ActionResult Index()
+        public Task<ActionResult Index()
         {
             var students = _context.Students.ToList();
             return View(students);
@@ -25,7 +25,6 @@ namespace MVCdemo.Controllers
 
         public ActionResult About()
         {
-            ViewBag.Title = "About Page";
             return View();
         }
 
